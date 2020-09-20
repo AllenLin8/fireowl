@@ -2,16 +2,16 @@
 A Project that shows a live dashboard of all the fires in the United States
 
 Created by:
-    - Allen Lin
-    - Ben Carter
-    - Krishna Ramani 
-    - Sahil Khan
+    Allen Lin
+    Ben Carter
+    Krishna Ramani 
+    Sahil Khan
 
 To run, install the following requirements:
-    - bottle
-    - mysql.connector
-    - urllib3
-    - gunicorn
+    bottle
+    mysql.connector
+    urllib3
+    gunicorn
       
 Edit the below in the codeto adjust the port that is served.
     PORT_TO_SERVE = 8012    
