@@ -17,7 +17,8 @@ Edit the below in the codeto adjust the port that is served.
     PORT_TO_SERVE = 8012    
 Edit the below in the code to adjust where the website files are served. These files are included with the problem
     webfiles = "your_path_here"
-
+Edit the below in the codeto adjust the port that is served.
+    YOUR_API_KEY = "your api key here"    
 
 Then, to run, simply type 'python3 v3.py' 
 
