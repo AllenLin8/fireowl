@@ -1,0 +1,124 @@
+
+.html {
+	background-color: #222;
+	
+}
+.body {
+	background-color: #222;
+	
+}
+
+.topCustomBanner {
+	background-color: #222;
+	color: rgb(63,164,255);
+	cursor: default;
+}
+
+.topCustomText {
+	color: rgb(63,164,255);
+	font-size: 120%;
+	text-decoration: none;
+}
+
+.topCustomText:hover {
+	color: #EEEEFF;
+	font-size: 122%;
+	text-decoration: underline;
+}
+.customBigger {
+	font-size: 130%;
+}
+.customBigger:hover {
+	color: #EEEEFF;
+	font-size: 131%;
+
+}
+.dbAlert {
+   font-size: 120%;
+   color: #000000;
+   text-align: center;
+    width: 30%;
+
+	-- margin-left: 30%;
+	position: fixed;
+	-- top: 3px;
+	bottom: 20px;
+	left: 23px;
+
+	z-index: 1000000000;
+	background-color: rgba(225,225,230,.8);
+	border-style: solid;
+	border-left-style: solid;
+	border-left-width: 1px;
+	border-left-color: rgba(48,55,64,.8);
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-top-color: rgba(48,55,64,.8);
+	border-right-style: none;
+	border-right-width: 1px;
+	border-right-color: rgba(48,55,64,.8);
+	border-bottom-style: none;
+	border-bottom-width: 1px;
+	border-bottom-color: rgba(48,55,64,.8);
+
+
+
+
+
+	border-radius: 5px;
+
+
+
+}
+
+.dbClose {
+	font-size: 80%;
+	cursor: pointer;
+	color: #333;
+	font-weight: bold;
+
+}
+.dbMain{
+
+}
+.db-green {
+
+
+   color: #EFE;
+
+}
+.db-red {
+
+   color: #000;
+
+}
+
+
+.headLeft {
+
+}
+.headRight {
+	position: relative;
+	top: 0;
+	right: 40px;
+
+}
+.headCenter {
+	background-color: #000;
+
+
+}
+
+.modal-content {
+	color: #EEF;
+	background-color: #333;
+}
+.modal-header {
+	border-bottom-color: #444;
+}
+.modal-body {
+	border-top-color: #444;
+}
+.modal-footer {
+	border-top-color: #444;
+}

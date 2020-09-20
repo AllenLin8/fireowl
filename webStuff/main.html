@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!--<script src = "/barcode/static/updater.js"></script>
+    <link rel="stylesheet" href="/barcode/static/style.css">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/4f198a0131.js" crossorigin="anonymous"></script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHYlUiSDtIY2qW_88QsILTfdpgRkNtBR8&callback=initMap&libraries=visualization"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link href="/style4Main.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet">
+    <style type="text/css">
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 95vh;
+        width: 100vw;
+      }
+      #breaker{
+        width:5vw;
+      }
+      #desc{
+        height: 100vh;
+        width: 20vw;
+      }
+      #text-styling{
+
+      }
+      /* Optional: Makes the sample page fill the window. */
+
+    </style>
+
+    <script>
+      "use strict";
+      var latLng = "";
+      let map;
+      var run1 = false;
+      var initArgument = "";
+      function initMap() {
+              
+               
+
+
+              // var sanFrancisco = new google.maps.LatLng(37.774546, -122.433523);
+              var heatmapData = [
+                     //   <!--$--POINTS--$-->
+              ];
+              var heatmapDataLight = [
+                        <!--$--POINTSLLL--$-->
+
+              ];
+              var heatmapDataMedium = [
+                        <!--$--POINTSMMM--$-->
+
+              ];
+              var heatmapDataHeavy = [
+                        <!--$--POINTSHHH--$-->
+
+              ];
+
+              var heatmapDataWindLight = [
+                    <!--$--POINTSWLW--$-->
+
+              ];
+
+              var heatmapDataWindMedium = [
+                    <!--$--POINTSWMW--$-->
+
+              ];
+
+              var heatmapDataWindHeavy = [
+                    <!--$--POINTSWHW--$-->
+
+              ];
+              map = new google.maps.Map(document.getElementById('map'), #$--MAPINFO--$#);
+              
+
+
+
+              var heatmapLight = new google.maps.visualization.HeatmapLayer({
+                data: heatmapDataLight,
+                gradient: [
+                  "rgba(255,255, 0,0)",
+                  "rgb(255, 255, 0)",
+                  "rgb(255, 255, 0)",
+                  "rgb(255, 255, 0)",
+                  "rgb(255, 255, 0)",
+                  "rgb(255, 255, 0)"
+              ],
+                radius: 13
+              });
+       //       heatmapLight.setMap(map);
+              var heatmapMedium = new google.maps.visualization.HeatmapLayer({
+                data: heatmapDataMedium,
+                gradient: [
+                "rgba(255,127,0,0)",
+                "rgb(255, 127, 0)",
+                "rgb(255, 127, 0)",
+                "rgb(255, 127, 0)",
+                "rgb(255, 127, 0)",
+                "rgb(255, 127, 0)"
+              ],
+                radius: 16
+              });
+     //         heatmapMedium.setMap(map);
+              var heatmapHeavy = new google.maps.visualization.HeatmapLayer({
+                data: heatmapDataHeavy,
+                gradient: [
+                  "rgba(255,0, 0,0)",
+                  "rgba(255, 0, 0,0.2)",
+                  "rgba(255, 0, 0,0.4)",
+                  "rgba(255, 0, 0,0.6)",
+                  "rgba(255, 0, 0,0.8)",
+                  "rgba(255, 0, 0,1)"
+              ],
+                radius: 20
+              });
+        //      heatmapHeavy.setMap(map);
+              var heatmapLightWind = new google.maps.visualization.HeatmapLayer({
+                data: heatmapDataWindLight,
+                gradient: [
+                  "rgba(0,0,255,0)",
+                  "rgb(0, 0,255)",
+                  "rgb(0, 0, 255)",
+                  "rgb(0, 0, 255)",
+                  "rgb(0, 0, 255)",
+                  "rgb(0, 0, 255)"
+              ],
+                radius: 15
+              });
+        //      heatmapLightWind.setMap(map);
+              var heatmapMediumWind = new google.maps.visualization.HeatmapLayer({
+                data: heatmapDataWindMedium,
+                gradient: [
+                  "rgba(0,0,255,0)",
+                  "rgba(0, 0,255,0.6)",
+                  "rgba(0, 0, 255,0.8)",
+                  "rgba(0, 0, 255,1)",
+                  "rgba(0, 0, 255,1)",
+                  "rgba(0, 0, 255,1)"
+              ],
+                radius: 20
+              });
+      //       heatmapMediumWind.setMap(map);
+              var heatmapHeavyWind = new google.maps.visualization.HeatmapLayer({
+                data: heatmapDataWindHeavy,
+                gradient: [
+                  "rgba(0,0,255,0)",
+                  "rgb(0, 0,255)",
+                  "rgb(0, 0, 255)",
+                  "rgb(0, 0, 255)",
+                  "rgb(0, 0, 255)",
+                  "rgb(0, 0, 255)"
+              ],
+                radius: 25
+              });
+             heatmapHeavyWind.setMap(map);
+        var infoWindow = new google.maps.InfoWindow();
+        heatmapLight.setMap(null);
+          heatmapMedium.setMap(null);
+          heatmapHeavy.setMap(null);
+          heatmapLightWind.setMap(null);
+          heatmapMediumWind.setMap(null);
+          heatmapHeavyWind.setMap(null);
+
+        if(initArgument == "")
+        {
+          // start
+          
+          heatmapLight.setMap(map);
+          heatmapMedium.setMap(map);
+          heatmapHeavy.setMap(map);
+          
+
+          
+        }
+        if(initArgument == "live")
+        {
+          // start
+          heatmapLight.setMap(map);
+          heatmapMedium.setMap(map);
+          heatmapHeavy.setMap(map);
+        }
+        if(initArgument == "future")
+        {
+          // start
+          heatmapLightWind.setMap(map);
+          heatmapMediumWind.setMap(map);
+          heatmapHeavyWind.setMap(map);
+        }
+        map.addListener("click",function(mapsMouseEvent) {
+            //alert(mapsMouseEvent.latLng.toString());
+            infoWindow.close();
+            infoWindow = new google.maps.InfoWindow({position: mapsMouseEvent.latLng});
+            latLng = mapsMouseEvent.latLng.toString();
+            infoWindow.setContent(mapsMouseEvent.latLng.toString());
+            $('#exampleModal').modal('show')
+        });
+        map.addListener("mouseup",function(mapsMouseEvent) {
+            //alert(mapsMouseEvent.latLng.toString());
+            latLng = mapsMouseEvent.latLng.toString();
+            var lat = latLng.split(",")[0].substring(1);
+            var lng = latLng.split(",")[1].substring(1);
+            lng = lng.substring(0, lng.length-1);
+            var dumpStr = "" + lat + "," + lng + ",7";
+            var enc = btoa(dumpStr);
+            window.history.replaceState({page: "another"},"map","/main?location=" + enc);
+        });
+        if(!run1)
+        {
+        var switchIt = document.getElementById("switchIt");
+      switchIt.addEventListener("mouseup",function () { 
+
+        var togglePred = document.getElementById("togglePredict").checked;
+        console.log(!togglePred);
+        heatmapLight.setMap(null);
+          heatmapMedium.setMap(null);
+          heatmapHeavy.setMap(null);
+          heatmapLightWind.setMap(null);
+          heatmapMediumWind.setMap(null);
+          heatmapHeavyWind.setMap(null);
+        if (!togglePred){
+          initArgument = "future";
+          initMap();
+        }
+        else {
+          initArgument = "live";
+          initMap();
+        } 
+        
+      }   );
+        }
+        run1 = true;
+
+
+      }
+      
+    </script>
+    <script>
+      function slightDelay() {
+      
+
+      }
+      setTimeout(slightDelay,1000);
+    </script>
+    
+    <script>
+      function closeAlert()
+      {
+        document.getElementById("alertMessage").innerHTML = "";
+
+      }
+    </script>
+    <script src="https://unpkg.com/@google/markerclustererplus@5.1.0/dist/markerclustererplus.min.js"></script>
+    <title>FireOwl</title>
+  </head>
+
+  <body>
+    <div class="headCenter" id="alertMessage">
+      <div class="dbAlert">
+        <div class="dbMain">
+          <div id="alertText" style = "" class = "p-4">A live and interactive report on current fires in the US and around the world!. As a user, you can place your own fires on the map if you observe a fire in your area. Just tap on the map indicating the location of a fire and it will be added to the display.<span class="dbClose" onclick="closeAlert()"> (Close ×)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <span class="navbar-brand" href="#"><i class="fas fa-fire text-danger fa-2x pl-1 pr-1"></i></span>
+      <span class="navbar-brand topCustomText customBigger" href="#">FireOwl</span>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav pl-5 mr-auto">
+          <li class="nav-item active pr-3 topCustomText"><span class="nav-link" href="#"></span></li>
+        </ul>
+      </div>
+    <div class="navbar-nav ml-auto">
+      <table>
+        <tr>
+          <td><span class="nav-link active topCustomText" href="#">Toggle Predictions</span></td>
+          <td><div class="toggle-container pt-2" id="switchIt">
+            <label class="switch pr-4">
+              <input type="checkbox" id="togglePredict">
+              <span class="slider round"></span>
+            </label>
+          </div></td>
+        </tr>
+      </table>
+    </div>
+    </nav>
+
+    <!--<div class="btn-container">
+      <button type="button" class="btn btn-primary btn-circle btn-xl " data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus"></i></button>
+    </div>
+-->
+    <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+    <div class = "row" id = "text-styling">
+      <div id="map"></div>
+      <div id = "breaker"></div>
+      <div id = "desc" class = "text-center">
+          <h1 style = "color:red;" class = "mb-4">Welcome to FireOwl</h1>
+          <p>FireOwl is a live and interactive report on current fires in the US and around the world. As a user, you can place your own fires on the map if you observe a fire in your area. Just tap on the map indicating the location of a fire and it will be added to the display.</p>
+      </div>
+      <div id = "breaker"></div>
+     </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Report Fire Intensity:</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true" style="color: white">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body text-center">
+            <div class="intensities pb-3">
+              <button onclick="yellow()" id="yellow-button" class="btn yellow-current"><i class="fas fa-fire fa-2x pl-1 pr-1"></i><br>Low</button>
+              <button onclick="orange()" id="orange-button" class="btn orange-current"><i class="fas fa-fire fa-2x pl-1 pr-1"></i><br><div>Med</div></button>
+              <button onclick="red()" id="red-button" class="btn red-current"><i class="fas fa-fire fa-2x  pl-1 pr-1"></i><br><div>High</div></button>
+            </div>
+            <div class="form-check pt-3">
+                <input class="smoke-check checkmark" type="checkbox" id="isSmoke" name = "isSmoke" checked>
+                <label class="smoke-check-label" for="defaultCheck1">
+                    Is there smoke?
+                </label>
+           </div>
+           <div class="form-group pt-3">
+                <label for="extraInfo">Extra Info:</label>
+                <input type="text" class="search-input" id="extraInfo" style="color: #FFF" placeholder="Please provide more information about the fire (optional)">
+           </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Exit</button>
+            <button type="button" class="btn btn-success" onclick = "sendPing()">Report</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+   </div>
+  </body>
+
+<style>
+h1 {
+  color:green;
+}
+body {
+  overflow: hidden;
+}
+.xyz {
+  background-size: auto;
+  text-align: center;
+  padding-top: 100px;
+}
+.btn-circle.btn-sm {
+  width: 30px;
+  height: 30px;
+  padding: 6px 0px;
+  border-radius: 15px;
+  font-size: 8px;
+  text-align: center;
+}
+.btn-circle.btn-md {
+    width: 50px;
+    height: 50px;
+    padding: 7px 10px;
+    border-radius: 25px;
+    font-size: 10px;
+    text-align: center;
+}
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.btn-container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 50px;
+}
+
+.orange-badge {
+  background-color: #F7721D ;
+  color: white;
+}
+
+.modal-body {
+  margin: 0;
+}
+
+.orange {
+  color: #F7721D;
+}
+
+
+.search-input {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  border-bottom: 2px solid #999;
+  transition: all .4s;
+  max-width: 70%;
+  min-width: 60%;
+}
+
+.search-input:focus {
+  background: transparent;
+  box-shadow: none;
+  border-bottom: 2px solid #dc3545;
+}
+
+.yellow-current {
+  color: #EEF;
+  border: 2px solid yellow;
+  background-color: #333;
+}
+
+.orange-current {
+  color: #EEF;
+  border: 2px solid orange;
+  background-color: #333;
+}
+
+.red-current {
+  color: #EEF;
+  border: 2px solid red;
+  background-color: #333;
+}
+
+.yellow-current:hover {
+  color: #000;
+  border: 2px solid yellow;
+  background-color: yellow;
+}
+
+.orange-current:hover {
+  color: #000;
+  border: 2px solid orange;
+  background-color: orange;
+}
+
+.red-current:hover {
+  color: #000;
+  border: 2px solid red;
+  background-color: red;
+}
+
+.switch {
+position: relative;
+display: inline-block;
+width: 60px;
+height: 30px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+
+/* The slider */
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #ccc;
+-webkit-transition: .4s;
+transition: .4s;
+}
+
+.slider:before {
+position: absolute;
+content: "";
+height: 22px;
+width: 22px;
+left: 4px;
+bottom: 4px;
+background-color: white;
+-webkit-transition: .4s;
+transition: .4s;
+}
+
+input:checked + .slider {
+background-color: #2196F3;
+}
+
+input:focus + .slider {
+box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+-webkit-transform: translateX(26px);
+-ms-transform: translateX(26px);
+transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+border-radius: 34px;
+}
+
+.slider.round:before {
+border-radius: 50%;
+}
+.prediction-label {
+text-align: right;
+}
+li {
+display: inline;
+}
+
+</style>
+
+<script>
+var alertLevel = 0;
+var createPing = new XMLHttpRequest();
+
+function yellow(){
+    document.getElementById('yellow-button').style.backgroundColor = "#1f8ec2";
+    document.getElementById('orange-button').style.backgroundColor = "#333";
+    document.getElementById('red-button').style.backgroundColor = "#333";
+    alertLevel = 1;
+}
+
+function orange(){
+    document.getElementById('yellow-button').style.backgroundColor = "#333";
+    document.getElementById('orange-button').style.backgroundColor = "#1f8ec2";
+    document.getElementById('red-button').style.backgroundColor = "#333";
+    alertLevel = 2;
+}
+
+function red(){
+    document.getElementById('yellow-button').style.backgroundColor = "#333";
+    document.getElementById('orange-button').style.backgroundColor = "#333";
+    document.getElementById('red-button').style.backgroundColor = "#1f8ec2";
+    alertLevel = 3;
+}
+
+createPing.onreadystatechange = function(){
+    if (this.readyState == 4 && this.status == 200)
+    {
+        if(this.response == "good")
+        {
+            window.location.replace(window.location);
+        }
+    }
+}
+
+function isSmoke()
+{
+    var isThereSmoke = document.getElementById("isSmoke").checked;
+    return isThereSmoke;
+}
+
+function addInfo()
+{
+    var additionalInfo = document.getElementById("extraInfo").value;
+    return additionalInfo;
+}
+
+function manualSend()
+{
+    if (alertLevel < 4)
+    {
+        if (alertLevel>0){
+            var smoke = isSmoke();
+            if (smoke)
+            {
+              smoke = 1;
+            }
+            else {
+              smoke = 0;
+            }
+            var additionalInfo = addInfo();
+            var infoSplit = additionalInfo.split(" ");
+            var combined = "";
+            var i;
+            for (i = 0; i < infoSplit.length; i++)
+            {
+                combined+=infoSplit[i]+"+";
+            }
+            combined = combined.substring(0, combined.length-1);
+            var lat = latLng.split(",")[0].substring(1);
+            var lng = latLng.split(",")[1].substring(1);
+            lng = lng.substring(0, lng.length-1);
+            createPing.open("GET", "/addPin?lat=" + lat + "&lng=" + lng + "&alert=" + alertLevel + "&smoke=" + smoke + "&addInfo=" + combined);
+            createPing.send();
+        }
+        else{
+
+        }
+    }
+    else
+    {
+        alert("Invalid response");
+    }
+}
+
+function sendPing(){
+    manualSend()
+}
+    </script>
+</html>

