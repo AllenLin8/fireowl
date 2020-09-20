@@ -10,7 +10,7 @@ for fire in fires:
     lng = fire[1]
     fireID = fire[2]
     url = "https://api.climacell.co/v3/weather/realtime"
-    querystring = {"lat":str(lat),"lon":str(lng),"unit_system":"si","fields":"wind_speed,wind_direction","apikey":"S686tmSnYRLXY90lSVP5gleajDhYmryc"}
+    querystring = {"lat":str(lat),"lon":str(lng),"unit_system":"si","fields":"wind_speed,wind_direction","apikey":"your_api_key"}
     response = requests.request("GET", url, params=querystring)
     out = json.loads(response.text)
     try:
