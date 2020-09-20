@@ -1,2 +1,3 @@
-# fireowl
+# FireOwl
+
 Welcome to FireOwl!
